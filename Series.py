@@ -89,8 +89,10 @@ class ShowTracker:
         self.saveShows()
 
     def saveShows(self):
+        seriesProgressFile = open(self.dataFileName, 'r+')
+        seriesProgressFile.write("-*- mode: org -*-")
         for show in self.series:
-            print unicode(show).encode('utf-8')
+            seriesProgressFile.write(unicode(show).encode('utf-8'))
 
     def updateShows(self):
         for show in self.series:
